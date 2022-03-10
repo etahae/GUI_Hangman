@@ -1,5 +1,4 @@
 from tkinter import *
-from playsound import playsound
 from random import choice
 from PIL import Image, ImageTk
 from audioplayer import AudioPlayer
@@ -9,13 +8,14 @@ import webbrowser
 def restart():
 	os.execl(sys.executable, sys.executable, *sys.argv)
 win = Tk()
-playsound("data/intro.mp3", 0)
+introplayer = AudioPlayer("data/intro.mp3")
+introplayer.play(loop = 0, block = 0)
 musicplayer = AudioPlayer("data/horror.mp3")
 musicplayer.play(loop = True, block = False)
 ws = win.winfo_screenwidth()
 hs = win.winfo_screenheight()
 Label(win, bg = "black", bd = 0, width = 960, height = 540).place(x = 0, y = 0)
-win.iconbitmap('data/icon.ico')
+#win.iconbitmap('data/icon.ico')
 win.geometry("%dx%d+%d+%d" % (960, 540, ws/2 - 480, hs/2 - 270))
 win.resizable(0, 0)
 win.title("Horror Words")
@@ -228,7 +228,9 @@ def play():
 		entry.delete(0, END)
 		if guess not in word:
 			if len(health) > 1 :
-				playsound("data/incorrect.mp3", 0)
+				lol = AudioPlayer("data/incorrect.mp3")
+				lol.play(block = 0, loop = 1)
+				win.after(1150, lol.stop)
 				image = Image.open("data/danger.png")
 				image = image.resize((960, 540), Image.ANTIALIAS)
 				my_img0 = ImageTk.PhotoImage(image)
@@ -237,12 +239,16 @@ def play():
 				redhurt.place(x = 0, y = 0)
 				win.after(120, redhurt.destroy)
 			else :
-				playsound("data/lose.mp3", 0)
+				lul = AudioPlayer("data/lose.mp3")
+				lul.play(block = 0, loop = 1)
+				win.after(1150, lul.stop)
 			if "♥" in health :
 				health.pop()
 				blood.destroy()
 		else :
-			playsound("data/correct.mp3", 0)
+			lil = AudioPlayer("data/correct.mp3")
+			lil.play(block = 0, loop = 1)
+			win.after(600, lil.stop)
 			guesses += guess
 		blood.destroy()
 		
@@ -266,7 +272,9 @@ def play():
 	if lista.replace(" ", "").replace("\n", "") == word :
 		vidlabel_.destroy()
 		
-		playsound("data/yay.mp3", 0)
+		yay = AudioPlayer("data/yay.mp3")
+		yay.play(block = 0, loop = 1)
+		win.after(1100, yay.stop)
 		image = Image.open("data/win1.jpg")
 		image = image.resize((960, 540), Image.ANTIALIAS)
 		my_img0 = ImageTk.PhotoImage(image)
