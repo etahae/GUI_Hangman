@@ -33,7 +33,7 @@ guess = ""
 health = ["♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥"]
 var = 0
 def web(site):
-	webbrowser.open(site)
+	webbrowser.open(site, new = 2)
 def main():
 	global playbutt, settingsbutt, aboutbutt, quitbutt
 	playbutt = Button(text = "   Play   ", padx = 45, pady = 17, bg = "black", fg = "red", relief = "ridge", command = tuto, cursor = "hand2", activebackground = "black", activeforeground = "white", font = ("system", 15), highlightthickness = 0)
@@ -126,6 +126,7 @@ def play():
 	
 	entry = Entry(text = "guess the letter", width = 4, justify = "center", fg = "white", bg = "black")
 	entry.place(x = (960/2 - 8), y = 260, anchor="center")
+	entry.focus_force()
 	#PROJECT TO ADD LETTERS BUTTONS INSIDE THE GAME SO NO NEED TO USE THE KEYBOARD
 	
 	a = Button(win, text = "a", cursor = "hand1", bg = "black", fg = "white", activebackground = "grey", activeforeground = "black", command = lambda : [entry.insert(0, "a"), getentry("<Return>")])
