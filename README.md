@@ -6,4 +6,4 @@ Run "$>pip install -r requirements.txt" if you want to install the required repo
 
 for linux users run "$>sudo apt-get install python3-tk" to install the tkinter library.
 
-Or visit our site hrogus.herokuapp.com to download the game as an executable. (for windows only)
+Or visit our site 'hrogus.herokuapp.com' to download the game as an executable. (for windows only)
