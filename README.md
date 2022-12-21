@@ -1,6 +1,6 @@
 # GUI_Hangman
 
-A simple word guessing game developed with tkinter library using python.
+A word guessing game developed with tkinter library using python.
 
 Run "$>pip install -r requirements.txt" if you want to install the required repositories for the game.
 
