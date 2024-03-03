@@ -21,7 +21,7 @@ win.resizable(0, 0)
 win.title("Horror Words")
 
 image = Image.open("data/initbg.jpg")
-image = image.resize((960, 540), Image.ANTIALIAS)
+image = image.resize((960, 540), Image.LANCZOS)
 my_img0 = ImageTk.PhotoImage(image)
 initimg = Label(image = my_img0)
 initimg.image = my_img0
